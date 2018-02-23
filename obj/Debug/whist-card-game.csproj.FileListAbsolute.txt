@@ -1,0 +1,9 @@
+C:\Users\steph\Documents\GitHub\whist-card-game\bin\Debug\whist-card-game.exe.config
+C:\Users\steph\Documents\GitHub\whist-card-game\bin\Debug\whist-card-game.exe
+C:\Users\steph\Documents\GitHub\whist-card-game\bin\Debug\whist-card-game.pdb
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist-card-game.csprojResolveAssemblyReference.cache
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist_card_game.Properties.Resources.resources
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist-card-game.csproj.GenerateResource.Cache
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist-card-game.exe
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist-card-game.pdb
+C:\Users\steph\Documents\GitHub\whist-card-game\obj\Debug\whist_card_game.form_main.resources
