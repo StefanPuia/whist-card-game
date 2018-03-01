@@ -50,6 +50,8 @@
             this.textBox_players_name_player2 = new System.Windows.Forms.TextBox();
             this.textBox_players_name_player1 = new System.Windows.Forms.TextBox();
             this.panel_rules = new System.Windows.Forms.Panel();
+            this.label_rules_title = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button_rules_back = new System.Windows.Forms.Button();
             this.panel_game = new System.Windows.Forms.Panel();
             this.label_game_info = new System.Windows.Forms.Label();
@@ -71,33 +73,31 @@
             this.label_switch = new System.Windows.Forms.Label();
             this.timer_handlewin = new System.Windows.Forms.Timer(this.components);
             this.panel_score = new System.Windows.Forms.Panel();
-            this.label_score_title = new System.Windows.Forms.Label();
-            this.label_score_trump = new System.Windows.Forms.Label();
-            this.label_score_team1 = new System.Windows.Forms.Label();
-            this.label_score_team2 = new System.Windows.Forms.Label();
-            this.label_score_player1 = new System.Windows.Forms.Label();
-            this.label_score_player2 = new System.Windows.Forms.Label();
-            this.label_score_player3 = new System.Windows.Forms.Label();
-            this.label_score_player4 = new System.Windows.Forms.Label();
-            this.label_score_total = new System.Windows.Forms.Label();
-            this.button_score_back = new System.Windows.Forms.Button();
             this.button_score_exit = new System.Windows.Forms.Button();
-            this.label_score_points_t1_s2 = new System.Windows.Forms.Label();
-            this.label_score_points_t1_s3 = new System.Windows.Forms.Label();
-            this.label_score_points_t1_s4 = new System.Windows.Forms.Label();
-            this.label_score_points_t1_s1 = new System.Windows.Forms.Label();
-            this.label_score_points_t2_s4 = new System.Windows.Forms.Label();
-            this.label_score_points_t2_s1 = new System.Windows.Forms.Label();
-            this.label_score_points_t2_s2 = new System.Windows.Forms.Label();
+            this.button_score_back = new System.Windows.Forms.Button();
+            this.label_score_player2 = new System.Windows.Forms.Label();
+            this.label_score_player1 = new System.Windows.Forms.Label();
+            this.label_score_player4 = new System.Windows.Forms.Label();
+            this.label_score_team2 = new System.Windows.Forms.Label();
+            this.label_score_player3 = new System.Windows.Forms.Label();
+            this.label_score_team1 = new System.Windows.Forms.Label();
             this.label_score_points_t2_s3 = new System.Windows.Forms.Label();
-            this.label_score_points_t1 = new System.Windows.Forms.Label();
-            this.label_score_points_t2 = new System.Windows.Forms.Label();
-            this.label_score_suit_2 = new System.Windows.Forms.Label();
-            this.label_score_suit_3 = new System.Windows.Forms.Label();
-            this.label_score_suit_4 = new System.Windows.Forms.Label();
+            this.label_score_points_t2_s2 = new System.Windows.Forms.Label();
             this.label_score_suit_1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label_rules_title = new System.Windows.Forms.Label();
+            this.label_score_points_t1_s1 = new System.Windows.Forms.Label();
+            this.label_score_points_t2 = new System.Windows.Forms.Label();
+            this.label_score_points_t2_s1 = new System.Windows.Forms.Label();
+            this.label_score_points_t1 = new System.Windows.Forms.Label();
+            this.label_score_suit_4 = new System.Windows.Forms.Label();
+            this.label_score_points_t1_s4 = new System.Windows.Forms.Label();
+            this.label_score_suit_3 = new System.Windows.Forms.Label();
+            this.label_score_points_t2_s4 = new System.Windows.Forms.Label();
+            this.label_score_suit_2 = new System.Windows.Forms.Label();
+            this.label_score_points_t1_s3 = new System.Windows.Forms.Label();
+            this.label_score_points_t1_s2 = new System.Windows.Forms.Label();
+            this.label_score_total = new System.Windows.Forms.Label();
+            this.label_score_trump = new System.Windows.Forms.Label();
+            this.label_score_title = new System.Windows.Forms.Label();
             this.panel_start.SuspendLayout();
             this.panel_players.SuspendLayout();
             this.panel_rules.SuspendLayout();
@@ -335,6 +335,30 @@
             this.panel_rules.Size = new System.Drawing.Size(1180, 811);
             this.panel_rules.TabIndex = 4;
             this.panel_rules.Visible = false;
+            // 
+            // label_rules_title
+            // 
+            this.label_rules_title.Font = new System.Drawing.Font("Segoe UI", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_rules_title.ForeColor = System.Drawing.Color.White;
+            this.label_rules_title.Location = new System.Drawing.Point(0, 20);
+            this.label_rules_title.Name = "label_rules_title";
+            this.label_rules_title.Size = new System.Drawing.Size(1180, 133);
+            this.label_rules_title.TabIndex = 8;
+            this.label_rules_title.Text = "Reguli";
+            this.label_rules_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.DarkGreen;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(90, 175);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox1.Size = new System.Drawing.Size(1000, 400);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // button_rules_back
             // 
@@ -595,96 +619,17 @@
             this.panel_score.TabIndex = 6;
             this.panel_score.Visible = false;
             // 
-            // label_score_title
+            // button_score_exit
             // 
-            this.label_score_title.Font = new System.Drawing.Font("Segoe UI", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_title.ForeColor = System.Drawing.Color.White;
-            this.label_score_title.Location = new System.Drawing.Point(0, 9);
-            this.label_score_title.Name = "label_score_title";
-            this.label_score_title.Size = new System.Drawing.Size(1180, 133);
-            this.label_score_title.TabIndex = 3;
-            this.label_score_title.Text = "Tabela de scor";
-            this.label_score_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_trump
-            // 
-            this.label_score_trump.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_trump.Location = new System.Drawing.Point(220, 230);
-            this.label_score_trump.Name = "label_score_trump";
-            this.label_score_trump.Size = new System.Drawing.Size(100, 30);
-            this.label_score_trump.TabIndex = 4;
-            this.label_score_trump.Text = "Suita";
-            this.label_score_trump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_team1
-            // 
-            this.label_score_team1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_team1.Location = new System.Drawing.Point(540, 230);
-            this.label_score_team1.Name = "label_score_team1";
-            this.label_score_team1.Size = new System.Drawing.Size(100, 30);
-            this.label_score_team1.TabIndex = 4;
-            this.label_score_team1.Text = "Echipa 1";
-            this.label_score_team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_team2
-            // 
-            this.label_score_team2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_team2.Location = new System.Drawing.Point(860, 230);
-            this.label_score_team2.Name = "label_score_team2";
-            this.label_score_team2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_team2.TabIndex = 4;
-            this.label_score_team2.Text = "Echipa 2";
-            this.label_score_team2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_player1
-            // 
-            this.label_score_player1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_player1.Location = new System.Drawing.Point(490, 200);
-            this.label_score_player1.Name = "label_score_player1";
-            this.label_score_player1.Size = new System.Drawing.Size(100, 30);
-            this.label_score_player1.TabIndex = 4;
-            this.label_score_player1.Text = "Player1";
-            this.label_score_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_player2
-            // 
-            this.label_score_player2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_player2.Location = new System.Drawing.Point(810, 200);
-            this.label_score_player2.Name = "label_score_player2";
-            this.label_score_player2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_player2.TabIndex = 4;
-            this.label_score_player2.Text = "Player2";
-            this.label_score_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_player3
-            // 
-            this.label_score_player3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_player3.Location = new System.Drawing.Point(590, 200);
-            this.label_score_player3.Name = "label_score_player3";
-            this.label_score_player3.Size = new System.Drawing.Size(100, 30);
-            this.label_score_player3.TabIndex = 4;
-            this.label_score_player3.Text = "Player3";
-            this.label_score_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_player4
-            // 
-            this.label_score_player4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_player4.Location = new System.Drawing.Point(910, 200);
-            this.label_score_player4.Name = "label_score_player4";
-            this.label_score_player4.Size = new System.Drawing.Size(100, 30);
-            this.label_score_player4.TabIndex = 4;
-            this.label_score_player4.Text = "Player4";
-            this.label_score_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_total
-            // 
-            this.label_score_total.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_total.Location = new System.Drawing.Point(220, 630);
-            this.label_score_total.Name = "label_score_total";
-            this.label_score_total.Size = new System.Drawing.Size(100, 30);
-            this.label_score_total.TabIndex = 4;
-            this.label_score_total.Text = "Total";
-            this.label_score_total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button_score_exit.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_score_exit.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_score_exit.Location = new System.Drawing.Point(958, 754);
+            this.button_score_exit.Name = "button_score_exit";
+            this.button_score_exit.Size = new System.Drawing.Size(210, 45);
+            this.button_score_exit.TabIndex = 4;
+            this.button_score_exit.Text = "Iesire";
+            this.button_score_exit.UseVisualStyleBackColor = true;
+            this.button_score_exit.Click += new System.EventHandler(this.button_score_exit_Click);
             // 
             // button_score_back
             // 
@@ -698,87 +643,65 @@
             this.button_score_back.UseVisualStyleBackColor = true;
             this.button_score_back.Click += new System.EventHandler(this.button_score_back_Click);
             // 
-            // button_score_exit
+            // label_score_player2
             // 
-            this.button_score_exit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_score_exit.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_score_exit.Location = new System.Drawing.Point(958, 754);
-            this.button_score_exit.Name = "button_score_exit";
-            this.button_score_exit.Size = new System.Drawing.Size(210, 45);
-            this.button_score_exit.TabIndex = 4;
-            this.button_score_exit.Text = "Iesire";
-            this.button_score_exit.UseVisualStyleBackColor = true;
-            this.button_score_exit.Click += new System.EventHandler(this.button_score_exit_Click);
+            this.label_score_player2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_player2.Location = new System.Drawing.Point(810, 200);
+            this.label_score_player2.Name = "label_score_player2";
+            this.label_score_player2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_player2.TabIndex = 4;
+            this.label_score_player2.Text = "Player2";
+            this.label_score_player2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t1_s2
+            // label_score_player1
             // 
-            this.label_score_points_t1_s2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t1_s2.Location = new System.Drawing.Point(540, 372);
-            this.label_score_points_t1_s2.Name = "label_score_points_t1_s2";
-            this.label_score_points_t1_s2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t1_s2.TabIndex = 4;
-            this.label_score_points_t1_s2.Text = "0";
-            this.label_score_points_t1_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_player1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_player1.Location = new System.Drawing.Point(490, 200);
+            this.label_score_player1.Name = "label_score_player1";
+            this.label_score_player1.Size = new System.Drawing.Size(100, 30);
+            this.label_score_player1.TabIndex = 4;
+            this.label_score_player1.Text = "Player1";
+            this.label_score_player1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t1_s3
+            // label_score_player4
             // 
-            this.label_score_points_t1_s3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t1_s3.Location = new System.Drawing.Point(540, 458);
-            this.label_score_points_t1_s3.Name = "label_score_points_t1_s3";
-            this.label_score_points_t1_s3.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t1_s3.TabIndex = 4;
-            this.label_score_points_t1_s3.Text = "0";
-            this.label_score_points_t1_s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_player4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_player4.Location = new System.Drawing.Point(910, 200);
+            this.label_score_player4.Name = "label_score_player4";
+            this.label_score_player4.Size = new System.Drawing.Size(100, 30);
+            this.label_score_player4.TabIndex = 4;
+            this.label_score_player4.Text = "Player4";
+            this.label_score_player4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t1_s4
+            // label_score_team2
             // 
-            this.label_score_points_t1_s4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t1_s4.Location = new System.Drawing.Point(540, 544);
-            this.label_score_points_t1_s4.Name = "label_score_points_t1_s4";
-            this.label_score_points_t1_s4.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t1_s4.TabIndex = 4;
-            this.label_score_points_t1_s4.Text = "0";
-            this.label_score_points_t1_s4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_team2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_team2.Location = new System.Drawing.Point(860, 230);
+            this.label_score_team2.Name = "label_score_team2";
+            this.label_score_team2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_team2.TabIndex = 4;
+            this.label_score_team2.Text = "Echipa 2";
+            this.label_score_team2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t1_s1
+            // label_score_player3
             // 
-            this.label_score_points_t1_s1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t1_s1.Location = new System.Drawing.Point(540, 286);
-            this.label_score_points_t1_s1.Name = "label_score_points_t1_s1";
-            this.label_score_points_t1_s1.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t1_s1.TabIndex = 4;
-            this.label_score_points_t1_s1.Text = "0";
-            this.label_score_points_t1_s1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_player3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_player3.Location = new System.Drawing.Point(590, 200);
+            this.label_score_player3.Name = "label_score_player3";
+            this.label_score_player3.Size = new System.Drawing.Size(100, 30);
+            this.label_score_player3.TabIndex = 4;
+            this.label_score_player3.Text = "Player3";
+            this.label_score_player3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t2_s4
+            // label_score_team1
             // 
-            this.label_score_points_t2_s4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t2_s4.Location = new System.Drawing.Point(860, 544);
-            this.label_score_points_t2_s4.Name = "label_score_points_t2_s4";
-            this.label_score_points_t2_s4.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t2_s4.TabIndex = 4;
-            this.label_score_points_t2_s4.Text = "0";
-            this.label_score_points_t2_s4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_points_t2_s1
-            // 
-            this.label_score_points_t2_s1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t2_s1.Location = new System.Drawing.Point(860, 286);
-            this.label_score_points_t2_s1.Name = "label_score_points_t2_s1";
-            this.label_score_points_t2_s1.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t2_s1.TabIndex = 4;
-            this.label_score_points_t2_s1.Text = "0";
-            this.label_score_points_t2_s1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_points_t2_s2
-            // 
-            this.label_score_points_t2_s2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t2_s2.Location = new System.Drawing.Point(860, 372);
-            this.label_score_points_t2_s2.Name = "label_score_points_t2_s2";
-            this.label_score_points_t2_s2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t2_s2.TabIndex = 4;
-            this.label_score_points_t2_s2.Text = "0";
-            this.label_score_points_t2_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_team1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_team1.Location = new System.Drawing.Point(540, 230);
+            this.label_score_team1.Name = "label_score_team1";
+            this.label_score_team1.Size = new System.Drawing.Size(100, 30);
+            this.label_score_team1.TabIndex = 4;
+            this.label_score_team1.Text = "Echipa 1";
+            this.label_score_team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_score_points_t2_s3
             // 
@@ -790,55 +713,15 @@
             this.label_score_points_t2_s3.Text = "0";
             this.label_score_points_t2_s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_score_points_t1
+            // label_score_points_t2_s2
             // 
-            this.label_score_points_t1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t1.Location = new System.Drawing.Point(540, 630);
-            this.label_score_points_t1.Name = "label_score_points_t1";
-            this.label_score_points_t1.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t1.TabIndex = 4;
-            this.label_score_points_t1.Text = "0";
-            this.label_score_points_t1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_points_t2
-            // 
-            this.label_score_points_t2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_points_t2.Location = new System.Drawing.Point(860, 630);
-            this.label_score_points_t2.Name = "label_score_points_t2";
-            this.label_score_points_t2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_points_t2.TabIndex = 4;
-            this.label_score_points_t2.Text = "0";
-            this.label_score_points_t2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_suit_2
-            // 
-            this.label_score_suit_2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_suit_2.Location = new System.Drawing.Point(220, 372);
-            this.label_score_suit_2.Name = "label_score_suit_2";
-            this.label_score_suit_2.Size = new System.Drawing.Size(100, 30);
-            this.label_score_suit_2.TabIndex = 4;
-            this.label_score_suit_2.Text = "0";
-            this.label_score_suit_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_suit_3
-            // 
-            this.label_score_suit_3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_suit_3.Location = new System.Drawing.Point(220, 458);
-            this.label_score_suit_3.Name = "label_score_suit_3";
-            this.label_score_suit_3.Size = new System.Drawing.Size(100, 30);
-            this.label_score_suit_3.TabIndex = 4;
-            this.label_score_suit_3.Text = "0";
-            this.label_score_suit_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_score_suit_4
-            // 
-            this.label_score_suit_4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score_suit_4.Location = new System.Drawing.Point(220, 544);
-            this.label_score_suit_4.Name = "label_score_suit_4";
-            this.label_score_suit_4.Size = new System.Drawing.Size(100, 30);
-            this.label_score_suit_4.TabIndex = 4;
-            this.label_score_suit_4.Text = "0";
-            this.label_score_suit_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_points_t2_s2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t2_s2.Location = new System.Drawing.Point(860, 372);
+            this.label_score_points_t2_s2.Name = "label_score_points_t2_s2";
+            this.label_score_points_t2_s2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t2_s2.TabIndex = 4;
+            this.label_score_points_t2_s2.Text = "0";
+            this.label_score_points_t2_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_score_suit_1
             // 
@@ -850,29 +733,146 @@
             this.label_score_suit_1.Text = "0";
             this.label_score_suit_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // richTextBox1
+            // label_score_points_t1_s1
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.DarkGreen;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(90, 175);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(1000, 400);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.label_score_points_t1_s1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t1_s1.Location = new System.Drawing.Point(540, 286);
+            this.label_score_points_t1_s1.Name = "label_score_points_t1_s1";
+            this.label_score_points_t1_s1.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t1_s1.TabIndex = 4;
+            this.label_score_points_t1_s1.Text = "0";
+            this.label_score_points_t1_s1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label_rules_title
+            // label_score_points_t2
             // 
-            this.label_rules_title.Font = new System.Drawing.Font("Segoe UI", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_rules_title.ForeColor = System.Drawing.Color.White;
-            this.label_rules_title.Location = new System.Drawing.Point(0, 20);
-            this.label_rules_title.Name = "label_rules_title";
-            this.label_rules_title.Size = new System.Drawing.Size(1180, 133);
-            this.label_rules_title.TabIndex = 8;
-            this.label_rules_title.Text = "Reguli";
-            this.label_rules_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_score_points_t2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t2.Location = new System.Drawing.Point(860, 630);
+            this.label_score_points_t2.Name = "label_score_points_t2";
+            this.label_score_points_t2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t2.TabIndex = 4;
+            this.label_score_points_t2.Text = "0";
+            this.label_score_points_t2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t2_s1
+            // 
+            this.label_score_points_t2_s1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t2_s1.Location = new System.Drawing.Point(860, 286);
+            this.label_score_points_t2_s1.Name = "label_score_points_t2_s1";
+            this.label_score_points_t2_s1.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t2_s1.TabIndex = 4;
+            this.label_score_points_t2_s1.Text = "0";
+            this.label_score_points_t2_s1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t1
+            // 
+            this.label_score_points_t1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t1.Location = new System.Drawing.Point(540, 630);
+            this.label_score_points_t1.Name = "label_score_points_t1";
+            this.label_score_points_t1.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t1.TabIndex = 4;
+            this.label_score_points_t1.Text = "0";
+            this.label_score_points_t1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_suit_4
+            // 
+            this.label_score_suit_4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_suit_4.Location = new System.Drawing.Point(220, 544);
+            this.label_score_suit_4.Name = "label_score_suit_4";
+            this.label_score_suit_4.Size = new System.Drawing.Size(100, 30);
+            this.label_score_suit_4.TabIndex = 4;
+            this.label_score_suit_4.Text = "0";
+            this.label_score_suit_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t1_s4
+            // 
+            this.label_score_points_t1_s4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t1_s4.Location = new System.Drawing.Point(540, 544);
+            this.label_score_points_t1_s4.Name = "label_score_points_t1_s4";
+            this.label_score_points_t1_s4.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t1_s4.TabIndex = 4;
+            this.label_score_points_t1_s4.Text = "0";
+            this.label_score_points_t1_s4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_suit_3
+            // 
+            this.label_score_suit_3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_suit_3.Location = new System.Drawing.Point(220, 458);
+            this.label_score_suit_3.Name = "label_score_suit_3";
+            this.label_score_suit_3.Size = new System.Drawing.Size(100, 30);
+            this.label_score_suit_3.TabIndex = 4;
+            this.label_score_suit_3.Text = "0";
+            this.label_score_suit_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t2_s4
+            // 
+            this.label_score_points_t2_s4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t2_s4.Location = new System.Drawing.Point(860, 544);
+            this.label_score_points_t2_s4.Name = "label_score_points_t2_s4";
+            this.label_score_points_t2_s4.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t2_s4.TabIndex = 4;
+            this.label_score_points_t2_s4.Text = "0";
+            this.label_score_points_t2_s4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_suit_2
+            // 
+            this.label_score_suit_2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_suit_2.Location = new System.Drawing.Point(220, 372);
+            this.label_score_suit_2.Name = "label_score_suit_2";
+            this.label_score_suit_2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_suit_2.TabIndex = 4;
+            this.label_score_suit_2.Text = "0";
+            this.label_score_suit_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t1_s3
+            // 
+            this.label_score_points_t1_s3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t1_s3.Location = new System.Drawing.Point(540, 458);
+            this.label_score_points_t1_s3.Name = "label_score_points_t1_s3";
+            this.label_score_points_t1_s3.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t1_s3.TabIndex = 4;
+            this.label_score_points_t1_s3.Text = "0";
+            this.label_score_points_t1_s3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_points_t1_s2
+            // 
+            this.label_score_points_t1_s2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_points_t1_s2.Location = new System.Drawing.Point(540, 372);
+            this.label_score_points_t1_s2.Name = "label_score_points_t1_s2";
+            this.label_score_points_t1_s2.Size = new System.Drawing.Size(100, 30);
+            this.label_score_points_t1_s2.TabIndex = 4;
+            this.label_score_points_t1_s2.Text = "0";
+            this.label_score_points_t1_s2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_total
+            // 
+            this.label_score_total.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_total.Location = new System.Drawing.Point(220, 630);
+            this.label_score_total.Name = "label_score_total";
+            this.label_score_total.Size = new System.Drawing.Size(100, 30);
+            this.label_score_total.TabIndex = 4;
+            this.label_score_total.Text = "Total";
+            this.label_score_total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_trump
+            // 
+            this.label_score_trump.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_trump.Location = new System.Drawing.Point(220, 230);
+            this.label_score_trump.Name = "label_score_trump";
+            this.label_score_trump.Size = new System.Drawing.Size(100, 30);
+            this.label_score_trump.TabIndex = 4;
+            this.label_score_trump.Text = "Suita";
+            this.label_score_trump.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_score_title
+            // 
+            this.label_score_title.Font = new System.Drawing.Font("Segoe UI", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_score_title.ForeColor = System.Drawing.Color.White;
+            this.label_score_title.Location = new System.Drawing.Point(0, 9);
+            this.label_score_title.Name = "label_score_title";
+            this.label_score_title.Size = new System.Drawing.Size(1180, 133);
+            this.label_score_title.TabIndex = 3;
+            this.label_score_title.Text = "Tabela de scor";
+            this.label_score_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // form_main
             // 
@@ -880,8 +880,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1180, 811);
-            this.Controls.Add(this.panel_rules);
             this.Controls.Add(this.panel_score);
+            this.Controls.Add(this.panel_rules);
             this.Controls.Add(this.panel_start);
             this.Controls.Add(this.panel_players);
             this.Controls.Add(this.panel_game);

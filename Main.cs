@@ -97,7 +97,7 @@ namespace whist_card_game
             startingPlayer = nextPlayer(1);
 
             match = 0;
-            currentTrump = r.Next(3);
+            currentTrump = r.Next(4);
             pictureBox_game_trump.ImageLocation = "cards/ace_of_" + trumps[currentTrump] + ".png";
 
             displayedCards = new List<PictureBox>();
@@ -297,6 +297,14 @@ namespace whist_card_game
             renderPlayed(card, player);
         }
 
+        private int getRoundPoints(int points)
+        {
+            points = points - 5;
+            if (points > 0)
+                return points;
+            return 0;
+        }
+
         private void timer_handlewin_Tick(object sender, EventArgs e)
         {
             playedCards = new Card[4] { new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, "") };
@@ -315,10 +323,10 @@ namespace whist_card_game
                 displayPanel(panel_score);
 
                 label_score_suit_1.Text = trumps[currentTrump];
-                currentTrump = nextPlayer(1);
+                currentTrump = parsePlayer(currentTrump + 1);
 
-                trumpPoints[match, 0] = (points[0] + points[2])%5;
-                trumpPoints[match, 1] = (points[1] + points[3])%5;
+                trumpPoints[match, 0] = getRoundPoints(points[0] + points[2]);
+                trumpPoints[match, 1] = getRoundPoints(points[1] + points[3]);
                 panel_score.Controls["label_score_points_t1_s" + (match + 1)].Text = trumpPoints[match, 0].ToString();
                 panel_score.Controls["label_score_points_t2_s" + (match + 1)].Text = trumpPoints[match, 1].ToString();
 
@@ -485,6 +493,34 @@ namespace whist_card_game
             label_switch.Text = players[currentPlayer] + ", este randul tau! Fa click pe ecran cand esti gata.";
 
             points = new int[4] { 0, 0, 0, 0 };
+
+            hideInfo();
+
+            Deck deck = new Deck();
+            deck.Shuffle();
+
+            for (int i = 0; i < 4; i++)
+            {
+                hands[i] = new List<Card>();
+                for (int j = 0; j < 13; j++)
+                    hands[i].Add(deck.DealCard());
+            }
+            sortHands();
+
+            Random r = new Random();
+            currentPlayer = r.Next(3) + 1;
+            startingPlayer = nextPlayer(1);
+
+            match++;
+            pictureBox_game_trump.ImageLocation = "cards/ace_of_" + trumps[currentTrump] + ".png";
+
+            displayedCards = new List<PictureBox>();
+            playedCards = new Card[4] { new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, "") };
+
+            round = 0;
+            points = new int[4] { 0, 0, 0, 0 };
+
+            rotate();
         }
     }
 }
