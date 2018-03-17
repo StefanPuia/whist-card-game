@@ -13,19 +13,22 @@ namespace whist_card_game
 {
     public partial class form_main : Form
     {
-        Panel activePanel;
-        string[] players = new string[4];
-        List<Card>[] hands = new List<Card>[4];
-        int currentPlayer = 0;
-        List<PictureBox> displayedCards = new List<PictureBox>();
+        // initializarea variablilelor
         Card[] playedCards = new Card[4] { new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, "") };
-        int round = 0;
         int[] points = new int[4] { 0, 0, 0, 0 };
         string[] trumps = { "hearts", "spades", "diamonds", "clubs" };
-        int currentTrump = 0;
-        int match = 0;
+        int[,] trumpPoints = new int[4, 2] { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } };
+
+        Panel activePanel;
         int startingPlayer;
-        int[,] trumpPoints = new int[4,2] { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } };
+        int currentPlayer = 0;
+        int currentTrump = 0;
+        int round = 0;
+        int match = 0;
+
+        string[] players = new string[4];
+        List<Card>[] hands = new List<Card>[4];
+        List<PictureBox> displayedCards = new List<PictureBox>();
 
         public form_main()
         {
@@ -33,6 +36,7 @@ namespace whist_card_game
             activePanel = panel_start;
         }
 
+        // schimba panoul afisat cu cel din parametri
         private void displayPanel(Panel newpanel)
         {
             activePanel.Visible = false;
@@ -57,6 +61,7 @@ namespace whist_card_game
 
         private void button_players_start_Click(object sender, EventArgs e)
         {
+            // daca nu au fost introduse numele jucatorilor, foloseste "PlayerX"
             players[0] = !textBox_players_name_player1.Text.Equals("")?textBox_players_name_player1.Text:"Player1";
             players[1] = !textBox_players_name_player2.Text.Equals("") ? textBox_players_name_player2.Text : "Player2";
             players[2] = !textBox_players_name_player3.Text.Equals("") ? textBox_players_name_player3.Text : "Player3";
@@ -64,14 +69,15 @@ namespace whist_card_game
 
             hideInfo();
 
+            // adauga numele jucatorilor in fiecare label
             label_score_player1.Text = players[0];
             label_score_player2.Text = players[1];
             label_score_player3.Text = players[2];
             label_score_player4.Text = players[3];
 
+            // reseteaza scorul
             label_score_points_t1.Text = "0";
-            label_score_points_t1.Text = "0";
-
+            label_score_points_t2.Text = "0";
             foreach (Control scorelabel in panel_score.Controls)
             {
                 Regex rgx = new Regex(@"label_score_points_t._s.");
@@ -81,9 +87,11 @@ namespace whist_card_game
                 }
             }
 
+            // creeaza un pachet si amesteca-l
             Deck deck = new Deck();
             deck.Shuffle();
 
+            // distribuie cartile si sorteaza cartile din maini
             for (int i = 0; i < 4; i++)
             {
                 hands[i] = new List<Card>();
@@ -92,20 +100,23 @@ namespace whist_card_game
             }
             sortHands();
 
+            // alege un jucator aleatoriu care sa inceapa
             Random r = new Random();
             currentPlayer = r.Next(3) + 1;
             startingPlayer = nextPlayer(1);
 
+            // alege un atu aleatoriu
             match = 0;
             currentTrump = r.Next(4);
             pictureBox_game_trump.ImageLocation = "cards/ace_of_" + trumps[currentTrump] + ".png";
 
+            // reseteaza cartile si punctele
             displayedCards = new List<PictureBox>();
             playedCards = new Card[4] { new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, "") };
             round = 0;
             points = new int[4] { 0, 0, 0, 0 };
 
-
+            // incepe jocul
             rotate();
             displayPanel(panel_switch);
         }
@@ -128,13 +139,18 @@ namespace whist_card_game
 
         private void rotate()
         {
+            // daca nu e ultima runda
             if (round >= 4)
             {
+                // afiseaza cartea jucata de jucatorul de jos
                 renderPlayer("bottom", currentPlayer);
+                // sterge toate cartile din mana pentru a nu fi apasate in timpul schimbului
                 for (int i = 0; i < displayedCards.Count; i++)
                 {
                     panel_game.Controls.Remove(displayedCards[i]);
                 }
+
+                // determina jucatorul cu scor maxim
                 int max = 0;
                 int maxplayer = -1;
                 for (int i = 0; i < 4; i++)
@@ -146,26 +162,33 @@ namespace whist_card_game
                     }
                 }
 
+                // adauga scorul
                 points[maxplayer]++;
+                // muta jocul la acelasi jucator
                 renderPlayers();
                 currentPlayer = parsePlayer(maxplayer - 1);
                 startingPlayer = nextPlayer(1);
                 displayInfo(players[maxplayer] + " a castigat runda.");
+                // incepe timer-ul pentru a reseta runda
                 timer_handlewin.Start();
             }
             else
             {
+                // muta jocul la urmatorul jucator
                 round++;
                 currentPlayer = nextPlayer(1);
 
+                // afiseaza panoul de schimbare
                 displayPanel(panel_switch);
                 label_switch.Text = players[currentPlayer] + ", este randul tau! Fa click pe ecran cand esti gata.";
 
+                // afiseaza cartile
                 renderPlayers();
                 renderCards();
             }
         }
 
+        // afiseaza toate cartile si punctele jucatorilor
         private void renderPlayers()
         {
             renderPlayer("bottom", currentPlayer);
@@ -174,11 +197,13 @@ namespace whist_card_game
             renderPlayer("left", nextPlayer(3));
         }
 
+        // creeaza un numar modulo 4 care e mai mare decat jucatorul curent
         private int nextPlayer(int inc)
         {
             return parsePlayer(currentPlayer + inc);
         }
 
+        // creeaza un numar valid intre 0 si 3 in functie de numarul dat
         private int parsePlayer(int player)
         {
             if (player >= 0 && player <= 3)
@@ -188,13 +213,16 @@ namespace whist_card_game
             return player % 4;
         }
 
+        // afiseaza cartile
         private void renderCards()
         {
+            // sterge cartile afisate
             for (int i = 0; i < displayedCards.Count; i++)
             {
                 panel_game.Controls.Remove(displayedCards[i]);
             }
 
+            // calculeaza spatiile pentru a pozitiona cartile in mijloc
             int cards = hands[currentPlayer].Count;
             int renderStart = 20;
             int spacing = 0;
@@ -211,6 +239,7 @@ namespace whist_card_game
                 spacing = renderWidth / cards - 1;
             }
 
+            // afiseaza cartile si adauga fiecareia evenimetul de click 
             for (int c = 0; c < cards; c++)
             {
                 Card currentCard = hands[currentPlayer][c];
@@ -228,15 +257,19 @@ namespace whist_card_game
             }
         }
 
+        // functia apelata la click pe cartea din mana
         private void playCard(PictureBox card)
         {
+            // incearca toate cartile din mana pentru a fi sigur ca e o carte valida
             for(int i = 0; i < hands[currentPlayer].Count; i++)
             {
                 string cardFilename = card.ImageLocation.Split('/')[1];
                 if (hands[currentPlayer][i].getImage().Equals(cardFilename))
                 {
+                    // in cazul in care cartea jucata urmareste regulile
                     if (validCard(hands[currentPlayer][i]) || currentPlayer == startingPlayer)
                     {
+                        // joaca acea carte
                         playedCards[currentPlayer] = hands[currentPlayer][i];
                         hands[currentPlayer].Remove(hands[currentPlayer][i]);
                         hideInfo();
@@ -260,6 +293,7 @@ namespace whist_card_game
             displayPanel(panel_game);
         }
 
+        // afiseaza cartea jucata in dreptul jucatorului respectiv
         private void renderPlayed(PictureBox card, int player)
         {
             if (!playedCards[player].ToString().Equals("_of_"))
@@ -273,6 +307,7 @@ namespace whist_card_game
             }
         }
 
+        // afiseaza textul informativ in caseta de text din mijloc
         private void displayInfo(string info)
         {
             label_game_info.Visible = true;
@@ -280,11 +315,13 @@ namespace whist_card_game
             label_game_info.Text = info;
         }
 
+        // ascunde caseta de text
         private void hideInfo()
         {
             label_game_info.Visible = false;
         }
 
+        // afiseaza numele jucatorilor in functie de locatia lor la masa
         private void renderPlayer(string side, int player)
         {
             Label name = panel_game.Controls["label_game_player_" + side] as Label;
@@ -297,6 +334,7 @@ namespace whist_card_game
             renderPlayed(card, player);
         }
 
+        // calculeaza excesul de puncte care vor fi utilizate ca punctaj final
         private int getRoundPoints(int points)
         {
             points = points - 5;
@@ -305,6 +343,7 @@ namespace whist_card_game
             return 0;
         }
 
+        // reseteaza trucul cand ultimul jucator a jucat cartea
         private void timer_handlewin_Tick(object sender, EventArgs e)
         {
             playedCards = new Card[4] { new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, ""), new Card("", "", 0, "") };
@@ -318,34 +357,36 @@ namespace whist_card_game
             rotate();
             timer_handlewin.Stop();
 
-            if(hands[startingPlayer].Count <= 0)
+            // daca nu mai sunt carti de jucat afiseaza scorul
+            if (hands[startingPlayer].Count <= 0)
             {
                 displayPanel(panel_score);
 
+                // afiseaza atuul in tabela de scor
                 label_score_suit_1.Text = trumps[currentTrump];
+                // schimba atuul
                 currentTrump = parsePlayer(currentTrump + 1);
 
+                // afiseaza scorul in tabela
                 trumpPoints[match, 0] = getRoundPoints(points[0] + points[2]);
                 trumpPoints[match, 1] = getRoundPoints(points[1] + points[3]);
                 panel_score.Controls["label_score_points_t1_s" + (match + 1)].Text = trumpPoints[match, 0].ToString();
                 panel_score.Controls["label_score_points_t2_s" + (match + 1)].Text = trumpPoints[match, 1].ToString();
-
-
                 panel_score.Controls["label_score_points_t1"].Text = sumScore(0).ToString();
                 panel_score.Controls["label_score_points_t2"].Text = sumScore(1).ToString();
 
-                if(match >= 3)
+                // daca una dintre echipe a ajuns la 7 puncte, anunta castigatorii
+                if (sumScore(0) >= 7)
                 {
+                    label_score_points_t1.Text = "CASTIGATORI";
                     button_score_back.Visible = false;
-                    if(sumScore(0) > sumScore(1))
-                    {
-                        label_score_points_t1.Text = "CASTIGATORI";
-                    }
-                    else
-                    {
-                        label_score_points_t2.Text = "CASTIGATORI";
-                    }
                 }
+                else if (sumScore(1) >= 7)
+                {
+                    label_score_points_t2.Text = "CASTIGATORI";
+                    button_score_back.Visible = false;
+                }
+                // daca nu, continua jocul
                 else
                 {
                     match++;
@@ -358,6 +399,7 @@ namespace whist_card_game
             }
         }
 
+        // calculeaza scorul total al echipei
         private int sumScore(int team)
         {
             int sum = 0;
@@ -368,8 +410,10 @@ namespace whist_card_game
             return sum;
         }
 
+        // sorteaza mana dupa atu si numar in ordine crescatoare
         private void sortHands()
         {
+            // pentru fiecare jucator
             for (int i = 0; i < 4; i++)
             {
                 List<Card> final = new List<Card>();
@@ -377,6 +421,8 @@ namespace whist_card_game
                 List<Card> spades = new List<Card>();
                 List<Card> diamonds = new List<Card>();
                 List<Card> clubs = new List<Card>();
+                // pentru fiecare carte din mana
+                // adauga fiecare atu in lista sa
                 foreach (Card c in hands[i])
                 {
                     switch (c.getSuit())
@@ -397,7 +443,9 @@ namespace whist_card_game
                             clubs.Add(c);
                             break;
                     }
-                }
+                }                
+
+                // sorteaza fiecare lista
 
                 for (int j = 0; j < hearts.Count - 1; j++)
                 {
@@ -455,6 +503,7 @@ namespace whist_card_game
                     }
                 }
 
+                // adauga listele in lista finala
                 final.AddRange(hearts);
                 final.AddRange(spades);
                 final.AddRange(diamonds);
@@ -464,8 +513,10 @@ namespace whist_card_game
             }
         }
 
+        // verifica validitatea cartii
         private bool validCard(Card card)
         {
+            // jucatorul trebuie sa joace cartea trucului, daca are vreuna
             Card trick = playedCards[startingPlayer];
             bool foundTrick = false;
             for (int i = 0; i < hands[currentPlayer].Count; i++)
@@ -477,6 +528,7 @@ namespace whist_card_game
                 }
             }
 
+            // daca nu, poate juca orice carte
             if (card.getSuit() != trick.getSuit() && foundTrick)
                 return false;
             return true;
@@ -487,8 +539,10 @@ namespace whist_card_game
             displayPanel(panel_start);
         }
 
+        // butonul de intoarcere la joc din tabela de scor
         private void button_score_back_Click(object sender, EventArgs e)
         {
+            // reseteaza jocul
             displayPanel(panel_switch);
             label_switch.Text = players[currentPlayer] + ", este randul tau! Fa click pe ecran cand esti gata.";
 
@@ -496,6 +550,7 @@ namespace whist_card_game
 
             hideInfo();
 
+            // adauga cartile in maini
             Deck deck = new Deck();
             deck.Shuffle();
 
@@ -507,11 +562,12 @@ namespace whist_card_game
             }
             sortHands();
 
+            // alege un nou jucator
             Random r = new Random();
             currentPlayer = r.Next(3) + 1;
             startingPlayer = nextPlayer(1);
 
-            match++;
+            // schimba atuul
             pictureBox_game_trump.ImageLocation = "cards/ace_of_" + trumps[currentTrump] + ".png";
 
             displayedCards = new List<PictureBox>();
@@ -520,6 +576,7 @@ namespace whist_card_game
             round = 0;
             points = new int[4] { 0, 0, 0, 0 };
 
+            // incepe jocul
             rotate();
         }
     }
