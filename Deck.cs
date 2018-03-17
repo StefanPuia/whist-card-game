@@ -21,6 +21,7 @@ namespace whist_card_game
             deck = new Card[NUMBER_OF_CARDS];
             currentCard = 0;
             ranNum = new Random();
+            // creeaza cartile
             for (int count = 0; count < deck.Length; count++)
             {
                 string face = faces[count % 13];
@@ -33,6 +34,7 @@ namespace whist_card_game
         public void Shuffle()
         {
             currentCard = 0;
+            // inlocuieste fiecare carte cu una aleasa aleatoriu
             for(int first = 0; first < deck.Length; first++)
             {
                 int second = ranNum.Next(NUMBER_OF_CARDS);

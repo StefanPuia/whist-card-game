@@ -33,6 +33,7 @@ namespace whist_card_game
 
         public int getPoints(string trump = "")
         {
+            // aduna punctele cartii cu 100 daca are acelasi atu ca cel din parametru
             return points + (trump.Equals(suit) ? 100 : 0);
         }
 
